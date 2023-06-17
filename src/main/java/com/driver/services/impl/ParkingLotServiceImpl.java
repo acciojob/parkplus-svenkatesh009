@@ -27,7 +27,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     }
 
     @Override
-    public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) throws Exception {
+    public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour)  {
         Spot spot=new Spot();
         spot.setPricePerHour(pricePerHour);
         if(numberOfWheels==2) spot.setSpotType(SpotType.TWO_WHEELER);
@@ -36,7 +36,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
         Optional<ParkingLot> optionalparkingLot=parkingLotRepository1.findById(parkingLotId);
         if(!optionalparkingLot.isPresent()){
-            throw new Exception("ParkingLot not found");
+            return null;
         }
 
         ParkingLot parkingLot=optionalparkingLot.get();
@@ -57,15 +57,15 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     }
 
     @Override
-    public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour) throws Exception {
+    public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour)  {
         Optional<ParkingLot> optionalparkingLot=parkingLotRepository1.findById(parkingLotId);
         if(!optionalparkingLot.isPresent()){
-            throw new Exception("ParkingLot not found");
+            return null;
         }
         ParkingLot parkingLot=optionalparkingLot.get();
         Optional<Spot> optionalSpot=spotRepository1.findById(spotId);
         if(!optionalSpot.isPresent()){
-            throw new Exception("Spot is not found");
+            return null;
         }
         Spot spot=optionalSpot.get();
         parkingLot.getSpotList().remove(spot);

@@ -26,9 +26,6 @@ public class UserServiceImpl implements UserService {
     public User updatePassword(Integer userId, String password) throws Exception {
 
         Optional<User> optionalUser=userRepository4.findById(userId);
-        if(!optionalUser.isPresent()){
-            throw new Exception("User not found");
-        }
         User user=optionalUser.get();
         user.setPassword(password);
         userRepository4.save(user);

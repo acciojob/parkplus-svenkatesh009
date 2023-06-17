@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
     public User updatePassword(Integer userId, String password)  {
 
         Optional<User> optionalUser=userRepository4.findById(userId);
+        if(!optionalUser.isPresent()) return new User();
         User user=optionalUser.get();
         user.setPassword(password);
         userRepository4.save(user);

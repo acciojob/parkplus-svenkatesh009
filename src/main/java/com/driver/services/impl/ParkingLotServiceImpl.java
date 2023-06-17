@@ -36,7 +36,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
         Optional<ParkingLot> optionalparkingLot=parkingLotRepository1.findById(parkingLotId);
         if(!optionalparkingLot.isPresent()){
-            return null;
+            return new Spot();
         }
 
         ParkingLot parkingLot=optionalparkingLot.get();
@@ -60,12 +60,12 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour)  {
         Optional<ParkingLot> optionalparkingLot=parkingLotRepository1.findById(parkingLotId);
         if(!optionalparkingLot.isPresent()){
-            return null;
+            return new Spot();
         }
         ParkingLot parkingLot=optionalparkingLot.get();
         Optional<Spot> optionalSpot=spotRepository1.findById(spotId);
         if(!optionalSpot.isPresent()){
-            return null;
+            return new Spot();
         }
         Spot spot=optionalSpot.get();
         parkingLot.getSpotList().remove(spot);

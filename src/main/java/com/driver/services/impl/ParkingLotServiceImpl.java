@@ -38,7 +38,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         if(!optionalparkingLot.isPresent()){
             return new Spot();
         }
-
+       spot.setOccupied(false);
         ParkingLot parkingLot=optionalparkingLot.get();
         parkingLot.getSpotList().add(spot);
         parkingLotRepository1.save(parkingLot);

@@ -23,8 +23,8 @@ public class PaymentController {
         try{
             payment=paymentService.pay(reservationId,amountSent,mode);
         }
-        catch (Throwable e) {
-            throw new Error(e);
+        catch(Exception e){
+            throw e;
         }
         return payment;
     }

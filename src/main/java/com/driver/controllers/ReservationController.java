@@ -23,8 +23,8 @@ public class ReservationController {
         Reservation reservation;
         try {
             reservation = reservationService.reserveSpot(userId, parkingLotId, timeInHours, numberOfWheels);
-        } catch (Throwable e) {
-            throw new Error(e);
+        } catch (Exception e) {
+            throw e;
         }
         return reservation;
     }

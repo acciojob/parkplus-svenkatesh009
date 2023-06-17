@@ -45,7 +45,7 @@ public class ReservationServiceImpl implements ReservationService {
         else spotType=SpotType.OTHERS;
 
         for(Spot spot1:spotList){
-            if(spot1.getSpotType().compareTo(spotType)==0 || !spot1.isOccupied()){
+            if(spot1.getSpotType().compareTo(spotType)==0 || !spot1.getOccupied()){
                 spot=spot1;
             }
         }

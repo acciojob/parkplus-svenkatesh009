@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updatePassword(Integer userId, String password) throws Exception {
+    public User updatePassword(Integer userId, String password)  {
 
         Optional<User> optionalUser=userRepository4.findById(userId);
         User user=optionalUser.get();
